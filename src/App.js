@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Cizgi from "./components/Cizgi"
+import Header from "./components/Header"
+import { contacts } from "./data"
+import "bootstrap/dist/css/bootstrap.css"
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" row justify-content-center gap-2">
+      <h1 className="text-danger text-center mt-5 border-bottom display-1">Zamana Tatlı Bir Yolculuk</h1>
+    {
+      contacts.map((item)=>{
+        const {id,name,imgUrl,phone,email}=item
+        return(
+         
+        <>
+          <Cizgi id={id} name={name} imgUrl={imgUrl} phone={phone} email={email}/>
+        </>
+         
+        )
+      })
+    }
+
+     
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
